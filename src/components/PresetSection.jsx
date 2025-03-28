@@ -124,7 +124,7 @@ const PresetSection = ({ onPresetChange }) => {
   return (
     <div className="module-card py-3">
       <div className="flex justify-between items-center mb-2">
-        <h2 className="text-sm font-medium text-slate-700">Select a Preset</h2>
+        <h2 className="text-sm font-medium text-slate-700">Select your creative persona</h2>
         <button 
           className="text-xs py-1 px-2 bg-slate-50 text-slate-600 rounded-lg hover:bg-slate-100 
                    transition-colors duration-200 flex items-center"
@@ -141,7 +141,7 @@ const PresetSection = ({ onPresetChange }) => {
         </button>
       </div>
 
-      {/* Minimal View - Only Preset Selection */}
+      {/* Minimal View - Only Persona Selection */}
       {!expanded && (
         <div className="space-y-2">
           {savedPresets.length > 0 ? (
@@ -171,13 +171,13 @@ const PresetSection = ({ onPresetChange }) => {
               </div>
               
               <div className="mt-1 text-xs text-slate-500">
-                <p>Expand to create new presets or edit existing ones.</p>
+                <p>Expand to create new personas or edit existing ones.</p>
               </div>
             </div>
           ) : (
             <div className="py-1">
               <p className="text-xs text-slate-500">
-                Click 'Expand' to create your first preset.
+                Click 'Expand' to create your first persona.
               </p>
             </div>
           )}

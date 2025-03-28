@@ -53,7 +53,7 @@ const OutputSection = ({ outputText, isLoading, onLoadOutput }) => {
   return (
     <div className="module-card h-full flex flex-col">
       <div className="module-header">
-        <h2 className="module-title">Output</h2>
+        <h2 className="module-title">Your post</h2>
         {outputText && (
           <button 
             className="save-button"
@@ -62,7 +62,7 @@ const OutputSection = ({ outputText, isLoading, onLoadOutput }) => {
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
               <path d="M7.707 10.293a1 1 0 10-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 11.586V6h-2v5.586l-1.293-1.293z" />
             </svg>
-            Save Output
+            Save post
           </button>
         )}
       </div>
@@ -70,7 +70,7 @@ const OutputSection = ({ outputText, isLoading, onLoadOutput }) => {
       {savedOutputs.length > 0 && (
         <div className="mb-6">
           <label className="block text-sm font-medium text-slate-700 mb-2">
-            Saved Outputs
+            Saved posts
           </label>
           <div className="flex flex-wrap gap-2">
             {savedOutputs.map(output => (
@@ -115,10 +115,10 @@ const OutputSection = ({ outputText, isLoading, onLoadOutput }) => {
       {showSaveModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white rounded-2xl p-6 max-w-md w-full mx-4">
-            <h3 className="text-lg font-semibold mb-4">Save Output</h3>
+            <h3 className="text-lg font-semibold mb-4">Save post</h3>
             <input
               type="text"
-              placeholder="Enter output name"
+              placeholder="Enter post name"
               value={outputName}
               onChange={(e) => setOutputName(e.target.value)}
               className="w-full p-3 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 

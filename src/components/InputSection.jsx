@@ -8,11 +8,11 @@ const InputSection = ({ inputText, setInputText }) => {
   return (
     <div className="module-card">
       <div className="module-header">
-        <h2 className="module-title">Input</h2>
+        <h2 className="module-title">Your thoughts</h2>
       </div>
       <textarea
         className="textarea-input h-[140px]"
-        placeholder="Paste your content here..."
+        placeholder="What idea or message do you want to convey?"
         value={inputText}
         onChange={(e) => setInputText(e.target.value)}
       />

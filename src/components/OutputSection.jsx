@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import ReactMarkdown from 'react-markdown';
 
 /**
  * Output section component for displaying remixed content
@@ -103,8 +102,8 @@ const OutputSection = ({ outputText, isLoading, onLoadOutput }) => {
       ) : (
         <div className="w-full flex-grow min-h-[400px] p-4 border border-slate-200 rounded-xl bg-slate-50 overflow-auto">
           {outputText ? (
-            <div className="prose prose-slate max-w-none">
-              <ReactMarkdown>{outputText}</ReactMarkdown>
+            <div className="whitespace-pre-wrap">
+              {outputText}
             </div>
           ) : (
             <div className="text-slate-500">Remixed content will appear here</div>

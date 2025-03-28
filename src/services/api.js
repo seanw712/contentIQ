@@ -21,7 +21,7 @@ export const remixService = {
       });
       
       // Construct the prompt based on preset settings
-      let prompt = `You are an expert LinkedIn post writer. Help me write a LinkedIn post`;
+      let prompt = `You are an expert LinkedIn post writer. Help me write a LinkedIn post and output only the post ready to be copied and pasted into LinkedIn.`;
       
       // Add persona context
       if (preset.persona === 'Company') {
@@ -32,7 +32,7 @@ export const remixService = {
       
       // Add content type
       if (preset.contentType) {
-        prompt += ` in a ${preset.contentType.toLowerCase()} style`;
+        prompt += `the content should be ${preset.contentType.toLowerCase()}`;
       }
       
       // Add tone of voice example if provided
@@ -42,7 +42,7 @@ export const remixService = {
       
       // Add competitor points if provided
       if (preset.competitorPoints) {
-        prompt += `\n\nExtra context / examples of other posts we like (if empty, ignore): ${JSON.stringify(preset.competitorPoints)}`;
+        prompt += `\n\nExtra context / examples of other posts which structure I like (if empty, ignore): ${JSON.stringify(preset.competitorPoints)}`;
       }
       
       // Add illustration request if enabled
@@ -50,43 +50,48 @@ export const remixService = {
         prompt += `\n\nObjective: Please also create actionable visual content specifications optimized for LinkedIn's B2B environment and adjusted to the topic/idea and audience.
 
           Output Structure:
+          ---------------------
 
-          FORMAT RECOMMENDATION
+          ILLUSTRATION OUTPUT
+
+          FORMAT
           Type (Single/Carousel)
-          Rationale for choice
           Dimensions
           • Desktop optimization
           • Mobile optimization
           Visual-to-text ratio
-          LAYOUT SPECIFICATION
-          Content zones (Top/Middle/Bottom)
-          White space requirements
-          Engagement elements placement
-          Mobile preview considerations
-          Scroll-stop elements
-          COPY FRAMEWORK
-          Primary headline (character count)
-          Supporting text placement
-          CTA positioning
-          Key information hierarchy
-          Constraints:
-          EXCLUDE:
 
-          Visual design elements
+          LAYOUT
+            Content zones (Top/Middle/Bottom)
+            White space requirements
+            Engagement elements placement
+            Mobile preview considerations
+            Scroll-stop elements
+
+          COPY
+            Primary headline (character count)
+            Supporting text placement
+            CTA positioning
+            Key information hierarchy
+          
+          EXCLUDE:
           Brand guidelines
           Technical specifications
           Marketing strategy
-          INCLUDE:
 
+          INCLUDE:
           Platform-specific requirements
           Engagement optimization
-          Accessibility considerations
           Professional credibility markers
+
           Example Input:
           "🎯 Your next team member won't be an AI yet, but your data governance better be ready for it.
           [Event details]"
 
           Example Output:
+          ---------------------
+
+          ILLUSTRATION OUTPUT
 
           FORMAT
           Type: Single image
@@ -100,7 +105,7 @@ export const remixService = {
           Zone 3 (Bottom 30%): Event details + CTA
           Mobile Preview: Critical text within center 80%
 
-          COPY PLACEMENT
+          COPY
           Headline: "Future-Proof Your Data Team" (Top)
           Supporting: "Exclusive roundtable with 30 leaders" (Middle)
           Details: "April 24th | Antwerp" (Bottom)

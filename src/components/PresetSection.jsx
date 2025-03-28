@@ -122,41 +122,37 @@ const PresetSection = ({ onPresetChange }) => {
   };
 
   return (
-    <div className="module-card">
-      <div className="module-header">
-        <h2 className="module-title">Preset Settings</h2>
-        <div className="flex gap-2">
-          <button 
-            className="save-button"
-            onClick={toggleExpand}
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-              {expanded ? (
-                <path fillRule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clipRule="evenodd" />
-              ) : (
-                <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
-              )}
-            </svg>
-            {expanded ? 'Collapse' : 'Expand'}
-          </button>
-        </div>
+    <div className="module-card py-3">
+      <div className="flex justify-between items-center mb-2">
+        <h2 className="text-sm font-medium text-slate-700">Select a Preset</h2>
+        <button 
+          className="text-xs py-1 px-2 bg-slate-50 text-slate-600 rounded-lg hover:bg-slate-100 
+                   transition-colors duration-200 flex items-center"
+          onClick={toggleExpand}
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 mr-1" viewBox="0 0 20 20" fill="currentColor">
+            {expanded ? (
+              <path fillRule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clipRule="evenodd" />
+            ) : (
+              <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+            )}
+          </svg>
+          Expand
+        </button>
       </div>
 
       {/* Minimal View - Only Preset Selection */}
       {!expanded && (
-        <div className="space-y-4">
+        <div className="space-y-2">
           {savedPresets.length > 0 ? (
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-2">
-                Select a Preset
-              </label>
               <div className="flex flex-wrap gap-2">
                 {savedPresets.map(preset => (
                   <button
                     key={preset.id}
                     onClick={() => handleLoadPreset(preset)}
                     className={`px-3 py-1 rounded-lg hover:bg-slate-200 
-                             transition-colors duration-200 text-sm flex items-center
+                             transition-colors duration-200 text-xs flex items-center
                              ${selectedPreset && selectedPreset.id === preset.id 
                                 ? 'bg-indigo-100 text-indigo-700 border border-indigo-200' 
                                 : 'bg-slate-100 text-slate-700'}`}
@@ -166,7 +162,7 @@ const PresetSection = ({ onPresetChange }) => {
                       className="ml-2 text-slate-500 hover:text-slate-700"
                       onClick={(e) => initiateDeletePreset(preset, e)}
                     >
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" viewBox="0 0 20 20" fill="currentColor">
                         <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
                       </svg>
                     </span>
@@ -174,14 +170,13 @@ const PresetSection = ({ onPresetChange }) => {
                 ))}
               </div>
               
-              <div className="mt-4 text-sm text-slate-500">
+              <div className="mt-1 text-xs text-slate-500">
                 <p>Expand to create new presets or edit existing ones.</p>
               </div>
             </div>
           ) : (
-            <div className="flex flex-col items-center justify-center py-6">
-              <p className="text-slate-600 mb-4">No saved presets yet.</p>
-              <p className="text-sm text-slate-500">
+            <div className="py-1">
+              <p className="text-xs text-slate-500">
                 Click 'Expand' to create your first preset.
               </p>
             </div>
